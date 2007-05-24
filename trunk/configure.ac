@@ -255,16 +255,15 @@ AC_CONFIG_FILES([Makefile
 		x-windows/Mosflm/Makefile
 		x-windows/Mosflm/mosflm/Makefile
 		x-windows/ipdisp/Makefile
+		etc/Makefile
+		include/Makefile
 		help/Makefile
+		html/Makefile
 		ccp4i/Makefile
 		doc/Makefile
+		manual/Makefile
 		])
-#AC_CONFIG_SUBDIRS([lib/ccif
-#                   x-windows/Mosflm
 
-#                   x-windows/libjwc/libjwc_c
-#                   x-windows/libjwc/libjwc_f
-#                   x-windows/xdl_view/src])
 AC_OUTPUT
 
 echo

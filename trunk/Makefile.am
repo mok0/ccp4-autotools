@@ -2,14 +2,14 @@
 ## $Id: Makefile.am 342 2007-05-15 20:27:57Z mok $
 
 # Build in these directories
-SUBDIRS = lib src doc ccp4i
+SUBDIRS = lib src ccp4i manual etc doc html
 
 if COMPILE_XAPPS
-   SUBDIRS+=x-windows help
+   SUBDIRS += x-windows help
 endif
 
 if COMPILE_UNSUPP
-   SUBDIRS+=unsupported/src
+   SUBDIRS += unsupported/src
 endif
 
 ACLOCAL_AMFLAGS = -I config
