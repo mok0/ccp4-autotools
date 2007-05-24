@@ -8,10 +8,10 @@
 
 bin_PROGRAMS = xdlmapman xdldataman
 
-LIBS  =  -lXt -lX11
 LDADD = ../../lib/src/libccp4c.la ../../lib/src/libccp4f.la \
 	../../lib/ccif/libccif.la ../xdl_view/src/libxdl_view.la
 
+LDFLAGS = @MMDB_LIBS@
 xdlmapman_SOURCES = xdlmapman.f xdlmapman_subs.f xdl_gksubs.f gkccp4_subs.f
 
 xdldataman_SOURCES = xdldataman.f xdldataman_subs.f xdl_gksubs.f gkccp4_subs.f xps_graf.f 

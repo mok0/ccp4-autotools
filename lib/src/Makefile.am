@@ -3,7 +3,10 @@
 ## Author: mok@bioxray.dk
 
 # substituted by autoconf if we want mmdb compiled.
-SUBDIRS = @CCP4_MMDB_DIR@ .
+
+if COMPILE_MMDB
+  SUBDIRS = mmdb
+endif
 
 noinst_PROGRAMS = fsplit
 fsplit_SOURCES = fsplit.c
