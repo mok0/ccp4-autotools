@@ -18,6 +18,8 @@ hklview_LDADD = ../xdl_view/src/libxdl_view.la \
 	../../lib/src/libccp4c.la \
 	../../lib/ccif/libccif.la
 
+hklview_LDFLAGS = @MMDB_LIBS@
+
 hklview_SOURCES = $(hklview_h_files) hklview.f
 
 

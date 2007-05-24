@@ -46,6 +46,8 @@ rotgen_LDADD =					\
 	../../lib/src/libccp4f.la		\
 	../../lib/ccif/libccif.la
 
+rotgen_LDFLAGS = @MMDB_LIBS@
+
 EXTRA_DIST = doc/rg_app1.html doc/rg_app2.html doc/rg_app3.html		\
   doc/rg_app4.html doc/rg_app5.html doc/rg_axes.gif doc/rg_chap1.html	\
   doc/rg_chap2.html doc/rg_chap3.html doc/rg_chap4.html			\

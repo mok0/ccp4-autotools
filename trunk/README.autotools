@@ -1,0 +1,46 @@
+
+
+Check for existence of atlas, lapack -> compile own copy.
+Check for installed mmdb -> compile own copy.
+Check if clipper is wanted
+      check for existence of fftw -> compile own copy (?)
+      if clipper is wanted, check for ssm -> compile own copy.
+
+Check if x-windows programs are wanted.
+
+
+----lapack------
+
+LAPACK_LIBS = -latlas / -llapack
+  or
+LAPACK_LIBS=
+LIBLAPACK_LA="$top/lib/lapack/src/liblapack.la \
+  $top/lib/lapack/blas/src/libblas.la"
+
+
+-----mmdb-----
+
+MMDB_LIBS="-lmmdb"
+  or
+MMDB_LIBS=
+LIBMMDB_LA=$top/lib/src/mmdb/libmmdb.la
+
+----clipper----
+
+if clipper not wanted:
+CLIPPER_LIBS=
+LIBCLIPPER_LA=
+
+if clipper wanted:
+   FFTWLIBS="-lsfftw"
+  
+   if SSM found:
+   SSM_LIBS="-lssm"
+   else:
+   SSM_LIBS=
+   LIBSSM_LA=$top_source/lib/ssm/libssm.la
+
+
+
+
+

@@ -53,7 +53,7 @@ TESTS = xdl_eg_c test_graph_win test_menu_area test_param_table \
 	test_io_window test_text_table test_evtim xdl_eg_f
 TESTS_ENVIRONMENT = XDL_DEBUG=1 _MALLOC_CHECK=1
 
-LDADD = libxdl_view.la ### $(X_LIBS) -lXt -lX11
+LDADD = libxdl_view.la $(X_LIBS) ####-lXt -lX11
 
 test_graph_win_SOURCES = test_graph_win.c 
 test_graph_win_LDADD = $(LDADD) -lm

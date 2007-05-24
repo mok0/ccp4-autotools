@@ -7,24 +7,28 @@ ACLOCAL_AMFLAGS = -I config
 # Build in these directories. The @blahblah@ values are substituted
 # by the appropriate value from autoconf (may be blank)
 
-SUBDIRS = ccif src ssm
+SUBDIRS = ccif src data
 
-if WANT_LAPACK
-SUBDIRS += lapack
+if COMPILE_SSM
+  SUBDIRS+=ssm
 endif
 
-if WANT_FFTW
-SUBDIRS += fftw
+if COMPILE_LAPACK
+  SUBDIRS += lapack
 endif
 
-if WANT_CLIPPER
-SUBDIRS += clipper
+if COMPILE_FFTW
+  SUBDIRS += fftw
+endif
+
+if COMPILE_CLIPPER
+  SUBDIRS += clipper
 endif
 
 
 #Distribute these directories:
 
-DIST_SUBDIRS = ccif clipper data fftw lapack regex rxdispencer src ssm X11
+DIST_SUBDIRS = ccif clipper data fftw lapack src ssm X11
 DIST_EXTRA = font.bin nice.font.bin # why are these here?
 
 ####

@@ -143,7 +143,8 @@ t_shift_SOURCES = arp_warp_/t_shift.f
 
 beast_SOURCES = beast_/beast.f beast_/kdfftsf.f
 beast_FFLAGS = -I./beast_
-beast_LDFLAGS = -llapack
+beast_LDFLAGS = @LAPACK_LIBS@
+
 #beast_SOURCES = beast_/beast.f beast_/beast_MPI/beast_MPI.f beast_/beast_MPI/kdfftsf.f beast_/kdfftsf.f
 #beast_FFLAGS = -I./beast_
 
@@ -151,7 +152,7 @@ bp3_SOURCES = bp3_/bp3input.C bp3_/gauss.C bp3_/model.C bp3_/minimizer.C \
 	bp3_/bp3main.C bp3_/crystal.C bp3_/likelihood.C bp3_/sad.C	 \
 	bp3_/bp3misc.C bp3_/mir.C bp3_/sfdata.C
 bp3_CXXFLAGS = -I./bp3_ -I../lib/src
-bp3_LDFLAGS = -llapack
+bp3_LDFLAGS = @LAPACK_LIBS@
 
 ccp4mapwish_SOURCES = ccp4mapwish_/c_src/c_contour.c	\
 	ccp4mapwish_/c_src/ccp4mapwish_canvas.c		\
@@ -203,27 +204,27 @@ dmmulti_SOURCES = dmmulti_/dmmulti.f dmmulti_/dmmulti_denmod.f	\
 	dmmulti_/dmmulti_xtlkdc.f
 dmmulti_FFLAGS = -I./dmmulti_
 
-dtrek2scala_SOURCES = dtrek2scala_/abblk.f dtrek2scala_/bemvec.f		\
-	dtrek2scala_/bmatrx.f dtrek2scala_/camatc.f dtrek2scala_/chkhdkey.f	\
-	dtrek2scala_/clcalc.f dtrek2scala_/clsopf.f dtrek2scala_/dcosfd.f	\
-	dtrek2scala_/dtrek2scala.f dtrek2scala_/getreu.f dtrek2scala_/gn3cmp.f	\
-	dtrek2scala_/hdropf.f dtrek2scala_/inihdr.f dtrek2scala_/mfsd.f		\
-	dtrek2scala_/mkbmat.f dtrek2scala_/mkordtr.f dtrek2scala_/mktrdtr.f	\
-	dtrek2scala_/moveit.f dtrek2scala_/open_file.f dtrek2scala_/opndtr.f	\
-	dtrek2scala_/ordr3.f dtrek2scala_/outhdr.f dtrek2scala_/plabsn.f	\
-	dtrek2scala_/prcdtr.f dtrek2scala_/prtgrp.f dtrek2scala_/rdrefl.f	\
-	dtrek2scala_/readhd.f dtrek2scala_/redtre.f dtrek2scala_/rotmat.f	\
-	dtrek2scala_/rtmats.f dtrek2scala_/sinv.f dtrek2scala_/umatcl.f		\
-	dtrek2scala_/vnorm.f dtrek2scala_/wrmatx.f dtrek2scala_/zeroia.f	\
-	dtrek2scala_/zerora.f dtrek2scala_/zerorm.f
+dtrek2scala_SOURCES = dtrek2scala_/abblk.f dtrek2scala_/bemvec.f	 \
+  dtrek2scala_/bmatrx.f dtrek2scala_/camatc.f dtrek2scala_/chkhdkey.f	 \
+  dtrek2scala_/clcalc.f dtrek2scala_/clsopf.f dtrek2scala_/dcosfd.f	 \
+  dtrek2scala_/dtrek2scala.f dtrek2scala_/getreu.f dtrek2scala_/gn3cmp.f \
+  dtrek2scala_/hdropf.f dtrek2scala_/inihdr.f dtrek2scala_/mfsd.f	 \
+  dtrek2scala_/mkbmat.f dtrek2scala_/mkordtr.f dtrek2scala_/mktrdtr.f	 \
+  dtrek2scala_/moveit.f dtrek2scala_/open_file.f dtrek2scala_/opndtr.f	 \
+  dtrek2scala_/ordr3.f dtrek2scala_/outhdr.f dtrek2scala_/plabsn.f	 \
+  dtrek2scala_/prcdtr.f dtrek2scala_/prtgrp.f dtrek2scala_/rdrefl.f	 \
+  dtrek2scala_/readhd.f dtrek2scala_/redtre.f dtrek2scala_/rotmat.f	 \
+  dtrek2scala_/rtmats.f dtrek2scala_/sinv.f dtrek2scala_/umatcl.f	 \
+  dtrek2scala_/vnorm.f dtrek2scala_/wrmatx.f dtrek2scala_/zeroia.f	 \
+  dtrek2scala_/zerora.f dtrek2scala_/zerorm.f
 dtrek2scala_FFLAGS = -I./dtrek2scala_
 
 dyndom_SOURCES = dyndom_/dyndom.f
 dyndom_FFLAGS = -I./dyndom_
 
-fffear_SOURCES = fffear_/fffear.f fffear_/fffear_dmlib.f				\
-	fffear_/fffear_fftkdc.f fffear_/fffear_mathkdc.f fffear_/fffear_xtlkdc.f	\
-	fffear_/filter.f fffear_/searcher.f fffear_/srchfft.f
+fffear_SOURCES = fffear_/fffear.f fffear_/fffear_dmlib.f		   \
+  fffear_/fffear_fftkdc.f fffear_/fffear_mathkdc.f fffear_/fffear_xtlkdc.f \
+  fffear_/filter.f fffear_/searcher.f fffear_/srchfft.f
 fffear_FFLAGS = -I./fffear_
 
 mapmask_SOURCES = mapmask_/mapmask.f
@@ -250,10 +251,10 @@ pdb_merge_SOURCES = mmdb_app_/pdb_merge.cpp
 pdb_merge_CXXFLAGS = -I./mmdb_app_ -I/usr/include/mmdb -I../lib/src
 
 
-molrep_SOURCES = molrep_/main_molrep_mtz.f molrep_/molrep.f				\
-	molrep_/molrep1.f molrep_/molrep2.f molrep_/molrep3.f molrep_/molrep_prog.f	\
-	molrep_/molrep_prog1.f molrep_/molrep_prog2.f molrep_/molrep_subr.f		\
-	molrep_/molrep_sym_ccp4.f molrep_/molrep_unix_ccp4.f
+molrep_SOURCES = molrep_/main_molrep_mtz.f molrep_/molrep.f		      \
+  molrep_/molrep1.f molrep_/molrep2.f molrep_/molrep3.f molrep_/molrep_prog.f \
+  molrep_/molrep_prog1.f molrep_/molrep_prog2.f molrep_/molrep_subr.f	      \
+  molrep_/molrep_sym_ccp4.f molrep_/molrep_unix_ccp4.f
 molrep_FFLAGS = -I./molrep_
 
 ncsmask_SOURCES = ncsmask_/ncsmask.f
@@ -355,10 +356,10 @@ tlsanl_FFLAGS = -I./restrain_
 
 tlsextract_SOURCES = restrain_/tlsextract.c
 tlsextract_CFLAGS = -I./restrain_  -I../lib/src 
-### 
+###
 
-rsps_SOURCES = rsps_/errlib.f rsps_/forlib.f rsps_/hlptxt.f rsps_/rsps.f	\
-rsps_/veclib.f
+rsps_SOURCES = rsps_/errlib.f rsps_/forlib.f rsps_/hlptxt.f rsps_/rsps.f \
+  rsps_/veclib.f
 rsps_FFLAGS = -I./rsps_
 
 sc_SOURCES = sc_/sc.f
@@ -366,7 +367,7 @@ sc_FFLAGS = -I./sc_
 
 scala_SOURCES = scala_/scala.f
 scala_FFLAGS = -I./scala_
-scala_LDFLAGS = -llapack # XXX configure
+scala_LDFLAGS = @LAPACK_LIBS@
 
 sfcheck_SOURCES =				\
 	sfcheck_/main_sfcheck_ccp4.f		\
@@ -387,7 +388,7 @@ sftools_FFLAGS = -I./sftools_
 
 solomon_SOURCES = solomon_/cmap_calc.c solomon_/cmap_io.c	\
 	solomon_/cmsk_io.c solomon_/matrix.c solomon_/solomon.c
-solomon_FFLAGS = -I./solomon_
+solomon_CFLAGS = -I./solomon_ -I../lib/src
 
 stereo_SOURCES = stereo_/astereo.f stereo_/central.f stereo_/helix.f	\
 	stereo_/lineq1.f stereo_/refine.f
