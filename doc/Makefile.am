@@ -4,7 +4,11 @@
 ## Copyright 2007 Morten Kjeldgaard
 ## This code is distributed under the GPL license.
 
-otherdoc = ccifdoc.ps ccp4.faq molrepdoc.rtf sfcheckdoc.ps
+psdir = $(datadir)/ccp4/ps
+ps_DATA = ccifdoc.ps sfcheckdoc.ps
+
+textdir = $(datadir)/ccp4/text
+text_DATA = ccp4.faq molrepdoc.rtf
 
 manpages = abs acorn act almn alternate_origins amore angles anisoanl	    \
 areaimol arp_waters AstexViewer axissearch baverage beast binsort bones2pdb \
