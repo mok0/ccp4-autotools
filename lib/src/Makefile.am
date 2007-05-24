@@ -3,10 +3,7 @@
 ## Author: mok@bioxray.dk
 
 # substituted by autoconf if we want mmdb compiled.
-#SUBDIRS = @CCP4_MMDB_DIR@
-
-LIBS = -lm 
-
+SUBDIRS = @CCP4_MMDB_DIR@ .
 
 noinst_PROGRAMS = fsplit
 fsplit_SOURCES = fsplit.c
@@ -49,6 +46,7 @@ overview.h ccp4_errno.h ccp4_parser.h ccp4_types.h cmap_data.h cmap_skew.h \
 cmtzlib.h library_f.h
 
 # Build the test application
+CLEANFILES = unix.f
 check_PROGRAMS = testlib
 testlib_SOURCES = testlib.f
 testlib_LDADD = .libs/libccp4f.a .libs/libccp4c.a ../ccif/libccif.la

@@ -23,8 +23,6 @@ INCLUDES = $(MMDB_CXXFLAGS)
 
 LDFLAGS = $(MMDB_LIBS)
 
-EXTRA_DIST = macros/mmdb.m4
-
 superpose_LDADD = libssm.la
 #superpose_LDFLAGS = -L$(libdir) -lssm
 
