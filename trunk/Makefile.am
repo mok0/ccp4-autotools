@@ -15,7 +15,7 @@ endif
 ACLOCAL_AMFLAGS = -I config
 
 #Distribute these directories:
-DIST_SUBDIRS = lib src x-windows unsupported doc help ccp4i
+DIST_SUBDIRS = lib src x-windows unsupported doc help ccp4i manual
 
 EXTRA_DIST = bootstrap
 
