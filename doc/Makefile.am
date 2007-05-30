@@ -40,5 +40,7 @@ xdl_view xloggraph xplot84driver zeroed
 
 install-data-local:
 	$(mkinstalldirs) $(DESTDIR)$(mandir)/man1; \
-	for f in $(manpages) ; do install -m644 $$f.doc $(DESTDIR)$(mandir)/man1/$$f.1 ; done
+	for f in $(manpages) ; do\
+	awk -f ../debian/doc2man.awk <$$f.doc|sed -r 's/<[a-z0-9]+>/\\fI&\\fR/g'> $$f.1 \
+	 install -m644 $$f.1 $(DESTDIR)$(mandir)/man1 ; done
 ####
