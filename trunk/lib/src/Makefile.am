@@ -41,12 +41,10 @@ plot84lib.f plotsubs.f pxxml.f rwbrook.f unix.f
 fsplit_dirs = cciflib ccplib dna_output fftlib harvlib keyparse lgglib	\
 libhtml modlib parser plot84lib plotsubs pxxml rwbrook unix
 
-ccp4_h_files = ccp4_file_err.h ccp4_program.h ccp4_unitcell.h cmap_errno.h \
-cmap_stats.h csymlib.h library_file.h w32mvs.h ccp4_fortran.h ccp4_spg.h   \
-ccp4_utils.h cmap_header.h cmaplib.h cvecmat.h mtzdata.h ccp4_array.h	   \
-ccp4_general.h ccp4_sysdep.h ccp4_vars.h cmap_labels.h cmaplib_f.h	   \
-overview.h ccp4_errno.h ccp4_parser.h ccp4_types.h cmap_data.h cmap_skew.h \
-cmtzlib.h library_f.h
+ccp4_h_files = ccp4_program.h ccp4_unitcell.h cmap_errno.h cmap_stats.h	    \
+csymlib.h w32mvs.h ccp4_fortran.h cmap_header.h cmaplib.h mtzdata.h	    \
+ccp4_general.h cmap_labels.h cmaplib_f.h overview.h cmap_data.h cmap_skew.h \
+cmtzlib.h library_f.h binsort.h pack_c.h
 
 # Build the test application
 CLEANFILES = unix.f
@@ -56,12 +54,12 @@ testlib_LDADD = .libs/libccp4f.a .libs/libccp4c.a ../ccif/libccif.la
 
 # Build the main libraries:
 library_includedir = $(pkgincludedir)
-library_include_HEADERS = $(libmox_h_sources)
+library_include_HEADERS = $(core_h_files) $(ccp4_h_files)
 
 lib_LTLIBRARIES = libccp4f.la libccp4c.la
 
 libccp4c_la_SOURCES = $(core_c_files) $(general_c_files) $(cuc_c_files)	\
-$(cmtz_c_files) $(cmap_c_files) $(csym_c_files)
+$(cmtz_c_files) $(cmap_c_files) $(csym_c_files) $(core_h_files) $(ccp4_h_files)
 
 libccp4f_la_SOURCES = $(fortran_f_files) $(finterface_c_files)
 
