@@ -243,6 +243,7 @@ AC_CONFIG_FILES([Makefile
 		lib/data/Makefile
 		src/Makefile
 		src/ccp4mapwish_/Makefile
+		unsupported/Makefile
 		unsupported/src/Makefile
 		x-windows/Makefile
 		x-windows/xdl_view/src/Makefile

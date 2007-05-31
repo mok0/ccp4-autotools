@@ -52,6 +52,6 @@ xplot84driver.html zeroed.html
 EXTRA_DIST = $(html_DATA) procheck_man
 
 install-data-local:
-	cp -a procheck_man $(htmldir)
+	cp -a procheck_man $(DESTDIR)/$(htmldir)
 
 ####
