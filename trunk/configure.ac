@@ -263,6 +263,7 @@ AC_CONFIG_FILES([Makefile
 		ccp4i/Makefile
 		doc/Makefile
 		manual/Makefile
+		ccp4-6.0.2-setup.sh
 		])
 
 AC_OUTPUT

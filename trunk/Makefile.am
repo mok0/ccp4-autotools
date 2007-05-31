@@ -17,7 +17,7 @@ ACLOCAL_AMFLAGS = -I config
 #Distribute these directories:
 DIST_SUBDIRS = $(SUBDIRS) x-windows help unsupported
 
-EXTRA_DIST = bootstrap
+EXTRA_DIST = bootstrap ccp4-6.0.2-setup.sh.in
 
 # If we have configured without some components of the package,
 # some directories are not traversed by the Makefiles. However,
@@ -33,5 +33,9 @@ endif
 if ! COMPILE_SSM
 	cd lib/ssm; $(MAKE) clean
 endif
+
+install-data-local:
+	$(mkinstalldirs) $(DESTDIR)/etc/profile.d
+	install -m644 ccp4-6.0.2-setup.sh $(DESTDIR)/etc/profile.d
 
 ####
