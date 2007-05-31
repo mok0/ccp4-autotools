@@ -1,46 +1,44 @@
+2007-05-31  Morten Kjeldgaard  <mok@bioxray.dk>
 
+	* These files are an attempt to write an installation procedure
+	for the CCP4 suite purely based on GNU autotools. I have attempted
+	to make the installation conform to the FSSTD standard that is
+	commonly used by Linux distributions.
 
-Check for existence of atlas, lapack -> compile own copy.
-Check for installed mmdb -> compile own copy.
-Check if clipper is wanted
-      check for existence of fftw -> compile own copy (?)
-      if clipper is wanted, check for ssm -> compile own copy.
+	Therefore, binaries are by default installed in ${prefix}/bin (the
+	prefix is by default /usr/local), library data in
+	${prefix}/share/ccp4, documentation in ${prefix}/share/doc/ccp4,
+	and so on. Files for the CCP4i interface is installed in
+	${prefix}/share/ccp4/ccp4i.
 
-Check if x-windows programs are wanted.
+	As previously, the package is configured using a configure
+	script. Run the script with the --help option to see how it can be
+	configured.  
 
+	The CCP4 package has several optional sections. By default,
+	clipper is not compiled (I prefer to install that
+	separately). As a result, several libraries are not needed by
+	default, namely ssm and fftw. By default, the unsupported
+	programs are compiled, and the x-windows applications as well. As
+	of this date, there is no mechanism for compiling Mosflm. I prefer
+	to install mosflm separately.
 
-----lapack------
+	Most modern Linux distributions have pre-installed or installable
+	versions of the lapack and fftw2 libraries. I strongly recommend
+	you to make use of those. The configure script looks for these
+	libraries, and if they are found in the system, they will not be
+	compiled. If the fast "atlas" libraries can be located, they will
+	be used instead of lapack. Likewise, configure will attempt to
+	locate an installed version of Eugene Krisinel's mmdb library. If
+	it is installed in the system, it will not be compiled.
 
-LAPACK_LIBS = -latlas / -llapack
-  or
-LAPACK_LIBS=
-LIBLAPACK_LA="$top/lib/lapack/src/liblapack.la \
-  $top/lib/lapack/blas/src/libblas.la"
-
-
------mmdb-----
-
-MMDB_LIBS="-lmmdb"
-  or
-MMDB_LIBS=
-LIBMMDB_LA=$top/lib/src/mmdb/libmmdb.la
-
-----clipper----
-
-if clipper not wanted:
-CLIPPER_LIBS=
-LIBCLIPPER_LA=
-
-if clipper wanted:
-   FFTWLIBS="-lsfftw"
-  
-   if SSM found:
-   SSM_LIBS="-lssm"
-   else:
-   SSM_LIBS=
-   LIBSSM_LA=$top_source/lib/ssm/libssm.la
-
-
-
+	As of today, I have only tested the default installation, not the
+	several other combinations that can be compiled.
+	
+	
+Local variables:	
+mode: change-log
+mode: font-lock
+End:
 
 

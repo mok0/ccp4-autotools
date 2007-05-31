@@ -1,0 +1,55 @@
+#! /bin/bash
+# -*- mode: shell-script; mode: font-lock -*-
+# ccp4-setup.sh for bourne-shell/ksh/bash users.
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+datarootdir=@datarootdir@
+export CBIN=@bindir@
+export CLIBD=@datadir@/ccp4
+export CLIBD_MON=@datadir@/ccp4/monomers/
+export CDOC=@datadir@/doc/ccp4
+export CHTML=@datadir@/doc/ccp4
+export CINCL=@includedir@/ccp4
+export CEXAM=@datadir@/doc/ccp4-examples
+export CETC=@bindir@
+export CCP4_LIB=${CLIBD}
+export CCP4_BIN=${CBIN}
+export CCP4_HELPDIR=@datadir@/ccp4/	# NB trailing /
+export HELPDIR=${CCP4_HELPDIR}		# for chelp
+export CCP4_DOC=@datadir@/doc/ccp4
+export CCP4_SCR=/tmp/${USER}
+test -d $CCP4_SCR || mkdir $CCP4_SCR
+export CCP4_BROWSER=/usr/bin/mozilla
+export CCP4_OPEN=UNKNOWN
+export BINSORT_SCR=${CCP4_SCR}
+export BINSORT_MEM=1024000
+export MCTYPE=unix 			# (only for Laue)
+export PLOT_COMMAND='lp'
+export PRINT_COMMAND='lp'
+export MOLREPLIB=${CLIBD_MON}
+export MOSHELPFILE=mosflm		# required by (ip)mosflm
+export CCP4I_TOP=@datadir@/ccp4/ccp4i
+export CCP4I_TCLTK=/usr/bin
+export CCP4I_BIN=${CCP4I_TOP}/bin
+export CCP4I_HELP=${CCP4I_TOP}/help
+export PUBLIC_FONT84=${CLIBD}/font84.dat   # plot84 fonts [used by plot84lib]
+export MMCIFDIC=${CLIBD}/cif_mmdic.lib
+case Linux in
+*Darwin* )
+  ulimit -s 65536
+  ###export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:${CLIB}
+  ;;
+* )
+  ;;
+esac
+##export CLASSPATH=${CLASSPATH}:$CBIN    # edit this if necessary
+##export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CLIB
+if test "/usr/ccp4/lib/data/X11/app-defaults/%N:/usr/lib/X11/app-defaults"; then
+  export XUSERFILESEARCHPATH=$CCP4_LIB/X11/app-defaults/%N:$XUSERFILESEARCHPATH
+else
+  export XUSERFILESEARCHPATH=$CCP4_LIB/X11/app-defaults/%N:/usr/lib/X11/app-defaults
+fi
+PATH=${PATH}:${CCP4I_BIN}
+##PATH=${PATH}:${CETC}:${CBIN}:${CCP4I_BIN}
+
+####
