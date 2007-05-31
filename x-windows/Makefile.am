@@ -6,7 +6,7 @@
 
 # Build in these directories
 
-SUBDIRS = xdl_view/src libjwc/libjwc_c libjwc/libjwc_f xdlgjk Rotgen	\
+SUBDIRS = xdl_view/src libjwc/libjwc_c libjwc/libjwc_f xdlgjk Rotgen \
   hklview_ XCCPJIFFY ipdisp
 
 #Distribute these directories:

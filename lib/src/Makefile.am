@@ -55,6 +55,9 @@ testlib_SOURCES = testlib.f
 testlib_LDADD = .libs/libccp4f.a .libs/libccp4c.a ../ccif/libccif.la
 
 # Build the main libraries:
+library_includedir = $(pkgincludedir)
+library_include_HEADERS = $(libmox_h_sources)
+
 lib_LTLIBRARIES = libccp4f.la libccp4c.la
 
 libccp4c_la_SOURCES = $(core_c_files) $(general_c_files) $(cuc_c_files)	\

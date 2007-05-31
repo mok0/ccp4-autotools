@@ -28,7 +28,7 @@ endif
 
 #Distribute these directories:
 
-DIST_SUBDIRS = ccif clipper data fftw lapack src ssm X11
+DIST_SUBDIRS = $(SUBDIRS) ssm lapack fftw clipper data X11
 DIST_EXTRA = font.bin nice.font.bin # why are these here?
 
 ####
