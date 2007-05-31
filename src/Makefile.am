@@ -23,13 +23,13 @@ refmac5 = refmac5 libcheck
 restrain = restrain rdent tlsextract tlsanl 
 topp = topp toplist pdbhtf
 
-bin_PROGRAMS = abs acorn act almn amore anisoanl areaimol baverage	    \
+bin_PROGRAMS = abs acorn act almn amore anisoanl areaimol baverage binsort  \
 bones2pdb bplot bulking cad cavenv cif2mtz contact coordconv crossec detwin \
 distang dtrek2mtz ecalc f2mtz ffjoin fft fhscal findncs freerflag fsearch   \
 gensym geomcalc getax hgen hklplot icoefl lsqkab makedict mama2ccp4 map2fs  \
 mapdump mapsig maptona4 matthews_coef mlphare mtz2various mtzdump mtzMADmod \
 mtzmnf mtztona4 mtzutils na4tomtz npo oasis omit overlapmap pdbset peakmax  \
-phistats polarrfn polypose prep_bulk professs rantan rebatch reindex revise \
+phistats pltdev polarrfn polypose prep_bulk professs rantan rebatch reindex revise \
 rfcorr rotamer rotmat rsearch rstats rwcontents sapi scaleit scalepack2mtz  \
 sfall sigmaa sortmtz sortwater stgrid stnet surface tffc tracer truncate    \
 unique vecref vectors volume watertidy watncs watpeak wilson $(arp_warp)    \
@@ -48,6 +48,8 @@ amore_SOURCES = amore.f
 anisoanl_SOURCES = anisoanl.f
 areaimol_SOURCES = areaimol.f
 baverage_SOURCES = baverage.f
+binsort_SOURCES = binsort.c
+binsort_CFLAGS = -I../lib/src
 bones2pdb_SOURCES = bones2pdb.f
 bplot_SOURCES = bplot.f
 bulking_SOURCES = bulking.f
@@ -98,6 +100,7 @@ overlapmap_SOURCES = overlapmap.f
 pdbset_SOURCES = pdbset.f
 peakmax_SOURCES = peakmax.f
 phistats_SOURCES = phistats.f
+pltdev_SOURCES = pltdev.c
 polarrfn_SOURCES = polarrfn.f
 polypose_SOURCES = polypose.f
 prep_bulk_SOURCES = prep_bulk.f

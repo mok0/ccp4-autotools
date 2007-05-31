@@ -9,7 +9,7 @@ if COMPILE_XAPPS
 endif
 
 if COMPILE_UNSUPP
-   SUBDIRS += unsupported/src
+   SUBDIRS += unsupported
 endif
 
 ACLOCAL_AMFLAGS = -I config
