@@ -2,7 +2,7 @@
 ## $Id: Makefile.am 342 2007-05-15 20:27:57Z mok $
 
 # Build in these directories
-SUBDIRS = lib src ccp4i manual etc doc html
+SUBDIRS = lib src ccp4i manual etc doc html include
 
 if COMPILE_XAPPS
    SUBDIRS += x-windows help
