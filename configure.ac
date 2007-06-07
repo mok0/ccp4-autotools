@@ -246,7 +246,9 @@ AC_CONFIG_FILES([Makefile
 		unsupported/Makefile
 		unsupported/src/Makefile
 		x-windows/Makefile
+		x-windows/xdl_view/Makefile
 		x-windows/xdl_view/src/Makefile
+		x-windows/libjwc/Makefile
 		x-windows/libjwc/libjwc_c/Makefile
 		x-windows/libjwc/libjwc_f/Makefile
 		x-windows/xdlgjk/Makefile
