@@ -6,7 +6,7 @@
 
 # Build in these directories
 
-SUBDIRS = xdl_view libjwc xdlgjk Rotgen hklview_ XCCPJIFFY ipdisp
+SUBDIRS = libjwc_c libjwc_f
 
 #Distribute these directories:
 DIST_SUBDIRS =  $(SUBDIRS)

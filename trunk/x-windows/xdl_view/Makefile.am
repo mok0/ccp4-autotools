@@ -4,11 +4,9 @@
 ## Copyright 2007 Morten Kjeldgaard
 ## This code is distributed under the GPL license.
 
-# Build in these directories
-
-SUBDIRS = xdl_view libjwc xdlgjk Rotgen hklview_ XCCPJIFFY ipdisp
+SUBDIRS = src
 
 #Distribute these directories:
-DIST_SUBDIRS =  $(SUBDIRS)
+DIST_SUBDIRS =  $(SUBDIRS) templates doc
 
 ####
