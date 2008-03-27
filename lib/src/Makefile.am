@@ -4,6 +4,8 @@
 
 # substituted by autoconf if we want mmdb compiled.
 
+AM_FFLAGS=$(CCP4_FFLAGS)
+
 if COMPILE_MMDB
   SUBDIRS = mmdb
 endif
