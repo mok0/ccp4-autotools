@@ -1,7 +1,7 @@
 # -*- mode: Makefile ; mode: font-lock -*-
 # $Id: Makefile.am 335 2007-04-10 12:08:10Z mok $
 
-#INCLUDES = -I$(top_srcdir)/include/mox -I$(prefix)/include
+AM_FFLAGS = $(CCP4_FFLAGS)
 
 ## Zap the long list of libs from main configure. We don't need'em here.
 LIBS= -lm
