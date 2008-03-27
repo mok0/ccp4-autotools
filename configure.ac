@@ -13,22 +13,31 @@ AC_PROG_CXX
 AC_PROG_AWK
 AC_PROG_YACC
 AC_PROG_CC
-AC_PROG_CPP
+##AC_PROG_CPP
 AC_PROG_LEX
 AC_PROG_INSTALL
 AC_PROG_LN_S
 AC_PROG_MAKE_SET
 AC_PROG_LIBTOOL
 
-AC_PROG_F77
+AC_PROG_FC(gfortran g77)
 
 # This test only sets fortran options up correctly if 
 # a GCC compiler is used. Should check many others!
 if test x$G77 = xyes; then
-   FFLAGS="$FFLAGS -fno-second-underscore -fno-globals"
-   echo "Using g77 flags: $FLAGS"
+   CCP4_FFLAGS="-fno-second-underscore -fno-globals"
+   echo "Using g77 flags: $FFLAGS $CCP4_FFLAGS"
 fi
 
+# This test only sets fortran options up correctly if 
+# a GCC compiler is used. Should check many others!
+if test x$GFORTRAN != x; then
+   CCP4_FCFLAGS="fno-second-underscore -fno-globals"
+   echo "Using gfortran flags: $FFLAGS $CCP4_FCFLAGS"
+fi
+
+AC_SUBST(CCP4_FFLAGS)
+AC_SUBST(CCP4_FCFLAGS)
 
 # This bit of code is to help the xdl_view library determine the
 # correct Fortran to C calling convention 
@@ -52,7 +61,7 @@ case "$ac_cv_f77_mangling" in
 *** You need to use option -fno-second-underscore with g77
 *** to compile Fortran to link with xdl_view.
 ])
-      FFLAGS="-fno-second-underscore $FFLAGS"
+      AM_FFLAGS="-fno-second-underscore $AM_FFLAGS"
     else
       AC_MSG_WARN([
 *** Your Fortran compiler looks like f2c.
@@ -146,8 +155,10 @@ AC_SUBST(MMDB_LIBS)
 compile_ssm=no
 AC_CHECK_LIB([ssm], [main],[SSM_LIBS="-lssm"],[SSM_LIBS=""])
 if test -z $SSM_LIBS ; then 
+   if test x$enable_clipper == "xyes"; then
       AC_MSG_RESULT([will build ssm])
       compile_ssm=yes
+   fi
 fi
 AM_CONDITIONAL(COMPILE_SSM, test x$compile_ssm = xyes)
 AC_SUBST(SSM_LIBS)
@@ -218,28 +229,6 @@ AC_CONFIG_FILES([Makefile
 		lib/Makefile
 		lib/ccif/Makefile
                 lib/src/Makefile
-		lib/lapack/Makefile
-		lib/lapack/src/Makefile
-		lib/lapack/blas/src/Makefile
-		lib/src/mmdb/Makefile
-		lib/clipper/Makefile
-		lib/clipper/config/Makefile
-		lib/clipper/clipper/Makefile
-		lib/clipper/clipper/ccp4/Makefile
-		lib/clipper/clipper/cctbx/Makefile
-		lib/clipper/clipper/cif/Makefile
-		lib/clipper/clipper/cns/Makefile
-		lib/clipper/clipper/contrib/Makefile
-		lib/clipper/clipper/core/Makefile
-		lib/clipper/clipper/minimol/Makefile
-		lib/clipper/clipper/mmdb/Makefile
-		lib/clipper/clipper/mmdbold/Makefile
-		lib/clipper/clipper/mtz/Makefile
-		lib/clipper/clipper/phs/Makefile
-		lib/clipper/examples/Makefile
-		lib/clipper/dox/Makefile
-		lib/clipper/src/Makefile
-		lib/clipper/src/pirate/Makefile
 		lib/data/Makefile
 		src/Makefile
 		src/ccp4mapwish_/Makefile
@@ -268,7 +257,43 @@ AC_CONFIG_FILES([Makefile
 		ccp4-6.0.2-setup.sh
 		])
 
+if test x$enable_clipper = xyes; then
+AC_CONFIG_FILES([
+		lib/clipper/Makefile
+		lib/clipper/config/Makefile
+		lib/clipper/clipper/Makefile
+		lib/clipper/clipper/ccp4/Makefile
+		lib/clipper/clipper/cctbx/Makefile
+		lib/clipper/clipper/cif/Makefile
+		lib/clipper/clipper/cns/Makefile
+		lib/clipper/clipper/contrib/Makefile
+		lib/clipper/clipper/core/Makefile
+		lib/clipper/clipper/minimol/Makefile
+		lib/clipper/clipper/mmdb/Makefile
+		lib/clipper/clipper/mmdbold/Makefile
+		lib/clipper/clipper/mtz/Makefile
+		lib/clipper/clipper/phs/Makefile
+		lib/clipper/examples/Makefile
+		lib/clipper/dox/Makefile
+		lib/clipper/src/Makefile
+		lib/clipper/src/pirate/Makefile
+		])
+fi
+
+if test x$compile_lapack = xyes; then
+AC_CONFIG_FILES([
+		lib/lapack/Makefile
+		lib/lapack/src/Makefile
+		lib/lapack/blas/src/Makefile
+		])
+fi
+
 AC_OUTPUT
+
+
+
+
+
 
 echo
 echo "     Configuration Summary"
