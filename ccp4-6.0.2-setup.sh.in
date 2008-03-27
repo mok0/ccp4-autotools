@@ -32,6 +32,8 @@ export CCP4I_TOP=@datadir@/ccp4/ccp4i
 export CCP4I_TCLTK=/usr/bin
 export CCP4I_BIN=${CCP4I_TOP}/bin
 export CCP4I_HELP=${CCP4I_TOP}/help
+export CCP4=@prefix@
+export CCP4_TOP=@datadir@/ccp4
 export PUBLIC_FONT84=${CLIBD}/font84.dat   # plot84 fonts [used by plot84lib]
 export MMCIFDIC=${CLIBD}/cif_mmdic.lib
 case Linux in
