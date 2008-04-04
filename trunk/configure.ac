@@ -25,14 +25,16 @@ AC_PROG_FC(gfortran g77)
 # This test only sets fortran options up correctly if 
 # a GCC compiler is used. Should check many others!
 if test x$G77 = xyes; then
-   CCP4_FFLAGS="-fno-second-underscore -fno-globals"
+   #CCP4_FFLAGS="-fno-second-underscore -fno-globals"
+   # gfortran change:
+   CCP4_FFLAGS="-fno-second-underscore -fall-intrinsics" 
    echo "Using g77 flags: $FFLAGS $CCP4_FFLAGS"
 fi
 
 # This test only sets fortran options up correctly if 
 # a GCC compiler is used. Should check many others!
 if test x$GFORTRAN != x; then
-   CCP4_FCFLAGS="fno-second-underscore -fno-globals"
+   CCP4_FCFLAGS="-fno-second-underscore -fno-globals"
    echo "Using gfortran flags: $FFLAGS $CCP4_FCFLAGS"
 fi
 
@@ -111,7 +113,7 @@ AM_CONDITIONAL(COMPILE_UNSUPP, test x$enable_unsupp = xyes)
 compile_lapack=no
 AC_MSG_CHECKING([for system lapack libraries])
 lapack_save_DFLAGS=$LDFLAGS
-LDFLAGS="$LDFLAGS -L/usr/lib/atlas"
+LDFLAGS="$LDFLAGS -L/usr/lib/atlas -lgfortran"
 AC_CHECK_LIB([lapack],[main],[LAPACK_LIBS="-L/usr/lib/atlas -llapack"],
 			     [LAPACK_LIBS=""])
 LDFLAGS=$lapack_save_DFLAGS
