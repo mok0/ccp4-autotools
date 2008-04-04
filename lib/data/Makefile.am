@@ -4,6 +4,8 @@
 ## Copyright 2007 Morten Kjeldgaard
 ## This code is distributed under the GPL license.
 
+AM_FFLAGS=$(CCP4_FFLAGS)
+
 noinst_PROGRAMS = fontpack
 fontpack_SOURCES = fontpack.f
 fontpack_LDADD = ../src/libccp4c.la ../src/libccp4f.la ../ccif/libccif.la $(MMDB_LIBS)
