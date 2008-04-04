@@ -4,7 +4,8 @@
 
 # substituted by autoconf if we want mmdb compiled.
 
-AM_FFLAGS=$(CCP4_FFLAGS)
+AM_FFLAGS=$(CCP4_FFLAGS) 
+AM_CFLAGS = -DGFORTRAN
 
 if COMPILE_MMDB
   SUBDIRS = mmdb
@@ -66,5 +67,5 @@ $(cmtz_c_files) $(cmap_c_files) $(csym_c_files) $(core_h_files) $(ccp4_h_files)
 libccp4f_la_SOURCES = $(fortran_f_files) $(finterface_c_files)
 
 unix.f: unix.m4
-	$(M4) unix.m4 > unix.f
+	$(M4) -D_gfort=1 unix.m4> unix.f
 ####
