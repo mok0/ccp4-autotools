@@ -28,7 +28,7 @@ EXTRA_DIST = $(main_tex_file) $(tex_include_files) $(tex_input_files) \
 # Files that safely can be removed by "make clean"
 CLEANFILES = manual.aux manual.cpd manual.idx manual.log manual.prx	\
   manual.bbl manual.cpx manual.ilg manual.pdf manual.blg manual.dvi	\
-  manual.ind manual.prd manual.toc manual.pdf manual.dvi
+  manual.ind manual.prd manual.toc manual.pdf manual.dvi *.aux
 
 DVIPS = dvips
 DVIPDF = dvipdf
