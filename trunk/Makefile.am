@@ -18,6 +18,7 @@ ACLOCAL_AMFLAGS = -I config
 DIST_SUBDIRS = $(SUBDIRS) x-windows help unsupported
 
 EXTRA_DIST = bootstrap ccp4-6.0.2-setup.sh.in
+CLEANFILES = ccp4-6.0.2-setup.sh
 
 # If we have configured without some components of the package,
 # some directories are not traversed by the Makefiles. However,
